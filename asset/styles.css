@@ -89,9 +89,22 @@ header input, .task-item {
     cursor: pointer;
 }
 
+.completed li {
+    background-color: #ccc;
+}
+
+/* .completed li .done input:checked {
+    border-color: gray;
+    background-color: #ccc;
+} */
+
+.completed .line {
+    text-decoration: line-through;
+}
+
 
 @media screen and (max-width : 400px) {
    body {
-    transform: scale(0.85);
+    transform: scale(0.9);
    }  
 }
