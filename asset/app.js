@@ -5,12 +5,14 @@ const addTaskBtn = document.querySelector('.add-btn');
 const addTaskText = document.querySelector('.add-text');
 const taskList = document.querySelector('.task-list');
 const search = document.querySelector('.search input');
+const checkBox = document.querySelectorAll('.cancel-task input');
+const hide = document.querySelector('.completed i');
 
 
 const addTodos = todos => {
     let html = `
     <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
-        <div class="cancel-task">
+        <div class="cancel-task fw-bold">
             <input type="checkbox" name="done" class = "done me-2">
             <span>${todos}</span>
         </div>
@@ -60,12 +62,16 @@ taskList.addEventListener('click', e => {
     // Deleting task
     if(e.target.classList.contains('delete')) {
         e.target.parentElement.remove();
-    }
+    }  
+});
 
-    // Completing or canceling a task 
-    if(e.target.classList.contains('done')) {
-        e.target.nextElementSibling.style.textDecoration = 'line-through';
-    }
+// Completing or canceling a task
+taskList.addEventListener('change', (e) => {
+        if(e.target.checked) {
+            e.target.nextElementSibling.style.textDecoration = 'line-through';
+        } else {
+            e.target.nextElementSibling.style.textDecoration = 'none';
+            }
 });
 
 // Searching the task list
@@ -85,8 +91,12 @@ search.addEventListener('keyup', e => {
     let term = search.value.trim().toLowerCase();
 
     filteredTask(term);
-
-    // console.log())
 });
 
+hide.addEventListener('click', e => {
+    // console.log(e.target);
+    e.target.classList.toggle('fa-chevron-up');
+    e.target.classList.toggle('fa-chevron-down');
+    // if(e.target.classList.contains())
 
+});

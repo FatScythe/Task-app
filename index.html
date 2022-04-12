@@ -21,7 +21,8 @@
 
             <h1 class="text-center">Task app</h1>
             <form class="search">
-                <input type="text" name="search" placeholder="Search for tasks" class="p-2 ps-4 rounded-pill">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" name="search" placeholder="Search for tasks" class="p-2 ps-5 rounded-pill">
             </form>
         </header>
 
@@ -29,7 +30,7 @@
             
             <ul class="container task-list">
                 <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
-                    <div class="cancel-task">
+                    <div class="cancel-task fw-bold">
                         <input type="checkbox" name="done" class = "done me-2">
                         <span contenteditable="">Welcome to Tasks!</span>
                     </div>
@@ -37,7 +38,7 @@
                 </li>
 
                 <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
-                    <div class="cancel-task">
+                    <div class="cancel-task fw-bold">
                         <input type="checkbox" name="done" class = "done me-2">
                         <span>Learn React</span>
                     </div>
@@ -45,7 +46,7 @@
                 </li>
 
                 <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
-                    <div class="cancel-task">
+                    <div class="cancel-task fw-bold">
                         <input type="checkbox" name="done" class = "done me-2">
                         <span>What to do today?</span>
                     </div>
@@ -53,7 +54,7 @@
                 </li>
 
                 <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
-                    <div class="cancel-task">
+                    <div class="cancel-task fw-bold">
                         <input type="checkbox" name="done" class = "done me-2">
                         <span>Stay on top of your game</span>
                     </div>
@@ -68,13 +69,30 @@
             <form class="add-text d-none">
                 <input type="text" name="task" placeholder="Add a new to-do" class="p-2 my-3 ps-4 rounded-pill">
             </form>
+        </div><br><br>
+
+        <div class="container my-5 m-2 completed">
+            <i class="fa-solid fa-chevron-up me-2 upbtn"></i>
+            <span>Completed <span>1</span></span>
+
+            <div class="">
+                <ul class="container completed-list">
+                    <li class="task-item m-2 me-5 bg-dark rounded border p-3 d-flex justify-content-start align-content-center">
+                        <div class="cancel-task fw-bold">
+                            <input type="checkbox" name="done" class = "done me-2">
+                            <span contenteditable="">Welcome to Tasks!</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
 
     </div>
 
 
-
+<!-- <img src="asset/SS2.jpg" class="w-100"> -->
 
 
     <script src="asset/app.js"></script>

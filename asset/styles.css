@@ -5,6 +5,11 @@
     --secondary-colour: rgb(20, 19, 19);
 }
 
+* {
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--primary-colour);
@@ -25,6 +30,17 @@ body {
     position: relative;
 }
 
+.search {
+    position: relative;
+}
+
+.search-icon {
+    color: gray;
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+}
+
 .task-list {
     margin: 0;
 }
@@ -35,7 +51,7 @@ input[type = text]:focus {
     border: none;
 }
 
-header input,.task-item {
+header input, .task-item {
     min-width: 340px;
     width: 100%;
 }
@@ -47,7 +63,7 @@ header input,.task-item {
 .add-task .add-btn {
     position: absolute;
     padding: 5px 18px;
-    background-color: rgb(145, 145, 6);
+    background-color: #FFC000;
     color: white;
     font-weight: bold;
     font-size: 30px;
@@ -63,4 +79,19 @@ header input,.task-item {
 
 .filtered {
     display: none !important;
+}
+
+.completed {
+    color: gray;
+}
+
+.completed i {
+    cursor: pointer;
+}
+
+
+@media screen and (max-width : 400px) {
+   body {
+    transform: scale(0.85);
+   }  
 }
