@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --primary-colour: #eee;
+    --secondary-colour: rgb(20, 19, 19);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-colour);
+}
+
+.dark-theme {
+    background-color: var(--secondary-colour);
+}
+
+.theme img {
+    width: 20px;
+    cursor: pointer;
+    float: right;  
+}
+
+.container {
+    max-width: 400px;
+    position: relative;
+}
+
+.task-list {
+    margin: 0;
+}
+
+input[type = text], 
+input[type = text]:focus {
+    background-color: #ccc;
+    border: none;
+}
+
+header input,.task-item {
+    min-width: 340px;
+    width: 100%;
+}
+
+.add-task input {
+    width: 100%;
+}
+
+.add-task .add-btn {
+    position: absolute;
+    padding: 5px 18px;
+    background-color: rgb(145, 145, 6);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50%;
+    bottom: -80px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.filtered {
+    display: none !important;
+}
