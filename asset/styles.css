@@ -6,6 +6,8 @@
 }
 
 * {
+    margin: 0;
+    padding: 0;
     list-style: none;
     scroll-behavior: smooth;
 }
@@ -89,8 +91,12 @@ header input, .task-item {
     cursor: pointer;
 }
 
-.completed li {
+.completed li  {
     background-color: #ccc;
+}
+
+.completed li .task-item {
+    width: 80%;
 }
 
 /* .completed li .done input:checked {

@@ -9,6 +9,8 @@ const checkBox = document.querySelectorAll('.cancel-task input');
 const arrow = document.querySelector('.completed i');
 const completedContainer = document.querySelector('.completed');
 const completedTask = document.querySelector('.completed-list');
+const uncompletedTask = document.querySelectorAll('.task-item .cancel-task .testing span');
+
 
 
 const addTodos = todos => {
@@ -28,18 +30,13 @@ const addCompleted = completed => {
     let html2 = `
     <li class="task-item m-2 me-5 bg-light-50 rounded border p-3 d-flex justify-content-start align-content-center">
         <div class="cancel-task fw-bold">
-            <input type="checkbox" name="done" class = "done me-2" checked>
+            <input type="checkbox" name="done" class = "done me-2 testing" checked>
             <span class = "line">${completed}</span>
         </div>
     </li>`;
 
     completedTask.innerHTML += html2;
 };
-
-
-
-
-
 
 // Dark and Light mode
 theme.addEventListener('click', (e) => {
@@ -84,7 +81,8 @@ taskList.addEventListener('change', (e) => {
         if(e.target.checked) {
             e.target.nextElementSibling.style.textDecoration = 'line-through';
             completedContainer.classList.remove('d-none');
-            let i = 0;
+                let i = 0;
+
                 let timer = setInterval(() =>{
                     i ++;
                     if(i == 1) {
@@ -92,10 +90,11 @@ taskList.addEventListener('change', (e) => {
                         clearInterval(timer);
                     }
                 }, 500);
+
                 let completed = e.target.parentElement.textContent.trim();
                 
                 addCompleted(completed);
-
+                
                 arrow.addEventListener('click', e => {
                     e.target.classList.toggle('fa-chevron-up');
                     e.target.classList.toggle('fa-chevron-down');
@@ -106,10 +105,31 @@ taskList.addEventListener('change', (e) => {
                         completedTask.style.display = "none";
                     }
                 });
-        } else {
-            e.target.nextElementSibling.style.textDecoration = 'none';
-        }
+        } 
+
+        // Undo the completed Task
+        Array.from(completedTask.children)
+            .forEach(child => { child
+                .addEventListener('change', (e) => {
+                if(!e.target.checked){
+                    let undo = e.target.parentElement.parentElement.textContent.trim();
+                    addTodos(undo);
+                    e.target.parentElement.parentElement.classList.add('d-none');
+                }
+
+                // Needs better condition
+                if(e.target.parentElement.parentElement.classList.contains('d-none')) {
+                    completedContainer.classList.add('d-none');
+                }
+            });
+        })
+
 });
+
+
+
+
+
 
 
 
