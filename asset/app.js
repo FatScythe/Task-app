@@ -143,7 +143,6 @@ let filteredTask = (term) => {
     Array.from(taskList.children)
         .filter( task => task.textContent.toLowerCase().includes(term))
             .forEach( task => task.classList.remove('filtered'));
-
 };
 
 search.addEventListener('keyup', e => {
