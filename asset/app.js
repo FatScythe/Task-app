@@ -10,7 +10,7 @@ const arrow = document.querySelector('.completed i');
 const completedContainer = document.querySelector('.completed');
 const completedTask = document.querySelector('.completed-list');
 const uncompletedTask = document.querySelectorAll('.task-item .cancel-task .testing span');
-
+const completedCount = document.querySelector('.completed .completednumber');
 
 
 const addTodos = todos => {
@@ -27,6 +27,8 @@ const addTodos = todos => {
 };
 
 const addCompleted = completed => {
+    completedCount.innerHTML = completedTask.children.length + 1;
+
     let html2 = `
     <li class="task-item m-2 me-5 bg-light-50 rounded border p-3 d-flex justify-content-start align-content-center">
         <div class="cancel-task fw-bold">
@@ -57,7 +59,7 @@ addTaskBtn.addEventListener('click', () => {
 });
 
 // Submitting the input field
-addTaskText.addEventListener('submit', (e) => {
+const todos = addTaskText.addEventListener('submit', (e) => {
     e.preventDefault();
     let todos = addTaskText.task.value.trim();
 
@@ -66,6 +68,7 @@ addTaskText.addEventListener('submit', (e) => {
         addTaskText.reset();
     }
 });
+
 
 
 
@@ -92,7 +95,6 @@ taskList.addEventListener('change', (e) => {
                 }, 500);
 
                 let completed = e.target.parentElement.textContent.trim();
-                
                 addCompleted(completed);
                 
                 arrow.addEventListener('click', e => {
@@ -109,18 +111,22 @@ taskList.addEventListener('change', (e) => {
 
         // Undo the completed Task
         Array.from(completedTask.children)
-            .forEach(child => { child
+            .forEach((child, index) => { child
                 .addEventListener('change', (e) => {
+                    
                 if(!e.target.checked){
                     let undo = e.target.parentElement.parentElement.textContent.trim();
                     addTodos(undo);
-                    e.target.parentElement.parentElement.classList.add('d-none');
+                    // e.target.parentElement.parentElement.classList.add('d-none');
+                    e.target.parentElement.parentElement.remove();
                 }
 
-                // Needs better condition
-                if(e.target.parentElement.parentElement.classList.contains('d-none')) {
+                if(completedTask.children.length === 0) {
                     completedContainer.classList.add('d-none');
+                } else {
+                    completedCount.innerHTML = completedTask.children.length;
                 }
+                
             });
         })
 
@@ -129,13 +135,8 @@ taskList.addEventListener('change', (e) => {
 
 
 
-
-
-
-
 // Searching the task list
 let filteredTask = (term) => {
-
     Array.from(taskList.children)
         .filter( task => !task.textContent.toLowerCase().includes(term))
             .forEach( task => task.classList.add('filtered'));
