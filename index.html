@@ -15,12 +15,12 @@
     <div class="container my-5">
 
         <header class="container mb-5 m-2">
-            <div class="theme container m-2 ">
+            <div class="theme container m-2 " title="light and dark mode">
                 <img src="asset/moon.png" alt="dark and light mode">
             </div>
 
             <h1 class="text-center">Task app</h1>
-            <form class="search">
+            <form class="search container" title="search tasks">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" name="search" placeholder="Search for tasks" class="p-2 ps-5 rounded-pill">
             </form>
@@ -31,10 +31,10 @@
             <ul class="container task-list">
                 <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
                     <div class="cancel-task fw-bold">
-                        <input type="checkbox" name="done" class = "done me-2">
+                        <input type="checkbox" name="done" class = "done me-2" title="task-completed">
                         <span>Welcome to Tasks!</span>
                     </div>
-                    <i class="fa-solid fa-trash delete"></i>
+                    <i class="fa-solid fa-trash delete" title="delete-task"></i>
                 </li>
 
                 <!-- <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
@@ -65,7 +65,7 @@
         </main>
 
         <div class="add-task container m-2">
-            <div class="add-btn">+</div>    
+            <div class="add-btn" title="add a new task">+</div>    
             <form class="add-text d-none">
                 <input type="text" name="task" placeholder="Add a new to-do" class="p-2 my-3 ps-4 rounded-pill">
             </form>

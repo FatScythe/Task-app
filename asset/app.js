@@ -17,10 +17,10 @@ const addTodos = todos => {
     let html = `
     <li class="task-item m-2 bg-light rounded d-flex justify-content-between align-content-center border p-3">
         <div class="cancel-task fw-bold">
-            <input type="checkbox" name="done" class = "done me-2">
+            <input type="checkbox" name="done" class = "done me-2" title="task-completed">
             <span>${todos}</span>
         </div>
-        <i class="fa-solid fa-trash delete"></i>    
+        <i class="fa-solid fa-trash delete" title="delete-task"></i>    
     </li>`;
 
     taskList.innerHTML += html;
@@ -32,7 +32,7 @@ const addCompleted = completed => {
     let html2 = `
     <li class="task-item m-2 me-5 bg-light-50 rounded border p-3 d-flex justify-content-start align-content-center">
         <div class="cancel-task fw-bold">
-            <input type="checkbox" name="done" class = "done me-2 testing" checked>
+            <input type="checkbox" name="done" class = "done me-2 testing" checked title = "undo task-completion">
             <span class = "line">${completed}</span>
         </div>
     </li>`;
@@ -117,7 +117,6 @@ taskList.addEventListener('change', (e) => {
                 if(!e.target.checked){
                     let undo = e.target.parentElement.parentElement.textContent.trim();
                     addTodos(undo);
-                    // e.target.parentElement.parentElement.classList.add('d-none');
                     e.target.parentElement.parentElement.remove();
                 }
 

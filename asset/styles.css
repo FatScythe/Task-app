@@ -99,7 +99,6 @@ header input, .task-item {
 
 .completed .count {
     font-size: 0.8em;
-    /* color: #ccc; */
     font-weight: bold;
 }
 
