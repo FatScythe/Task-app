@@ -5,9 +5,10 @@
     --secondary-colour: rgb(20, 19, 19);
 }
 
-* {
+*, *::after, *::before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     list-style: none;
     scroll-behavior: smooth;
     /* border: 1px solid red; */
@@ -16,8 +17,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--primary-colour);
-    display: grid;
-    place-items: center;
 }
 
 .dark-theme {
@@ -30,10 +29,6 @@ body {
     float: right;  
 }
 
-.container {
-    max-width: 400px;
-    position: relative;
-}
 
 .search {
     position: relative;
@@ -46,9 +41,6 @@ body {
     left: 20px;
 }
 
-.task-list {
-    margin: 0;
-}
 
 input[type = text], 
 input[type = text]:focus {
@@ -57,7 +49,6 @@ input[type = text]:focus {
 }
 
 header input, .task-item {
-    min-width: 340px;
     width: 100%;
 }
 
@@ -73,7 +64,7 @@ header input, .task-item {
     font-weight: bold;
     font-size: 30px;
     border-radius: 50%;
-    bottom: -80px;
+    bottom: 20;
     right: 10px;
     cursor: pointer;
 }
@@ -124,3 +115,8 @@ header input, .task-item {
     text-decoration: line-through;
 }
 
+@media screen and (max-width : 400px) {
+    body .first{
+        /* transform: scale(0.85); */
+    }
+}
