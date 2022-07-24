@@ -114,9 +114,3 @@ header input, .task-item {
 .completed .line {
     text-decoration: line-through;
 }
-
-@media screen and (max-width : 400px) {
-    body .first{
-        /* transform: scale(0.85); */
-    }
-}
